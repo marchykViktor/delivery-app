@@ -1,5 +1,5 @@
-import {Model, Table, Column, CreatedAt, UpdatedAt, HasMany, ForeignKey, BelongsTo} from 'sequelize-typescript';
-import {MenuPosition} from "./MenuPosition";
+import {Model, Table, Column, CreatedAt, UpdatedAt,  ForeignKey, BelongsTo} from 'sequelize-typescript';
+
 import {Client} from "./Client";
 import {Courier} from "./Courier";
 
@@ -20,11 +20,11 @@ export class Order extends Model<Order> {
     @BelongsTo(() => Client)
     client: Client;
 
-    @HasMany(() => MenuPosition)
-    menu: MenuPosition[];
-
     @Column
     address: string;
+
+    @Column
+    status: string;
 
     @CreatedAt
     creationDate: Date;

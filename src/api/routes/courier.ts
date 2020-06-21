@@ -10,7 +10,7 @@ export default (app: Router) => {
 
     route.post('/create',
         celebrate({
-            query: Joi.object({
+            body: Joi.object({
                 firstName: Joi.string().required(),
                 lastName: Joi.string().required(),
                 phoneNumber: Joi.number().required()
@@ -20,7 +20,7 @@ export default (app: Router) => {
             const simulationServiceInstance: CourierService = Container.get(CourierService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.addCourier(req.query);
+            simulationInfo = await simulationServiceInstance.addCourier(req.body);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );
@@ -45,7 +45,7 @@ export default (app: Router) => {
             params: Joi.object({
                 id: Joi.number().required()
             }),
-            query: Joi.object({
+            body: Joi.object({
                 id: Joi.number().required(),
                 firstName: Joi.string(),
                 lastName: Joi.string(),
@@ -56,7 +56,7 @@ export default (app: Router) => {
             const simulationServiceInstance: CourierService = Container.get(CourierService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.updateCourier(req.query, req.params.id);
+            simulationInfo = await simulationServiceInstance.updateCourier(req.body, req.params.id);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );

@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import ClientService from "../../services/ClientService";
+import RestaurantService from "../../services/RestaurantService";
 import {Container} from 'typedi';
 import {celebrate, Joi} from "celebrate";
 
@@ -10,16 +10,17 @@ export default (app: Router) => {
 
     route.post('/create',
         celebrate({
-            query: Joi.object({
+            body: Joi.object({
                 name: Joi.string().required(),
-                address: Joi.string().required()
+                address: Joi.string().required(),
+                menu: Joi.array().required()
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
+            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.addClient(req.query);
+            simulationInfo = await simulationServiceInstance.addRestaurant(req.body);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );
@@ -31,10 +32,10 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
+            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.getClient(req.params.id);
+            simulationInfo = await simulationServiceInstance.getRestaurant(req.params.id);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );
@@ -44,16 +45,16 @@ export default (app: Router) => {
             params: Joi.object({
                 id: Joi.number().required()
             }),
-            query: Joi.object({
+            body: Joi.object({
                 name: Joi.string(),
                 address: Joi.string()
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
+            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.updateClient(req.query, req.params.id);
+            simulationInfo = await simulationServiceInstance.updateRestaurant(req.body, req.params.id);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );
@@ -65,22 +66,21 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
+            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.deleteClient(req.params.id);
+            simulationInfo = await simulationServiceInstance.deleteRestaurant(req.params.id);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );
 
     route.get('/',
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
+            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
             let simulationInfo: any;
 
-            simulationInfo = await simulationServiceInstance.getClients();
+            simulationInfo = await simulationServiceInstance.getRestaurants();
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );
-
 };

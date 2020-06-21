@@ -11,7 +11,7 @@ export default (app: Router) => {
 
     route.post('/create',
         celebrate({
-            query: Joi.object({
+            body: Joi.object({
                 firstName: Joi.string().required(),
                 lastName: Joi.string().required(),
                 address: Joi.string().required(),
@@ -22,7 +22,7 @@ export default (app: Router) => {
             const simulationServiceInstance: ClientService = Container.get(ClientService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.addClient(req.query);
+            simulationInfo = await simulationServiceInstance.addClient(req.body);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );
@@ -47,7 +47,7 @@ export default (app: Router) => {
             params: Joi.object({
                 id: Joi.number().required()
             }),
-            query: Joi.object({
+            body: Joi.object({
                 firstName: Joi.string(),
                 lastName: Joi.string(),
                 address: Joi.string(),
@@ -58,7 +58,7 @@ export default (app: Router) => {
             const simulationServiceInstance: ClientService = Container.get(ClientService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.updateClient(req.query, req.params.id);
+            simulationInfo = await simulationServiceInstance.updateClient(req.body, req.params.id);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );
@@ -93,7 +93,7 @@ export default (app: Router) => {
             params: Joi.object({
                 id: Joi.number().required()
             }),
-            query: Joi.object({
+            body: Joi.object({
                 firstName: Joi.string().required(),
                 lastName: Joi.string().required(),
                 address: Joi.string().required(),
@@ -104,7 +104,7 @@ export default (app: Router) => {
             const simulationServiceInstance: DeliveryService = Container.get(DeliveryService);
             let simulationInfo;
 
-            simulationInfo = await simulationServiceInstance.addClient(req.query);
+            simulationInfo = await simulationServiceInstance.addClient(req.body);
             return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
         }
     );

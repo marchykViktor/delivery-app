@@ -2,18 +2,21 @@ import {Service, Inject} from 'typedi';
 import {ContainerNames} from "../share";
 import {Repository} from 'sequelize-typescript';
 import {Restaurant} from "../models/Restaurant";
+import {MenuPosition} from "../models/MenuPosition";
 
 
 @Service()
 export default class RestaurantService {
+
 
     constructor(
         @Inject(ContainerNames.RESTAURANT_MODEL) private restaurantModel: Repository<Restaurant>
     ) {}
 
     public async addRestaurant(requestParams: any) {
-        const restaurant = await this.restaurantModel.create(requestParams);
-
+        const restaurant = this.restaurantModel.create(requestParams, {
+            include: [MenuPosition]
+        });
         return restaurant;
     }
 

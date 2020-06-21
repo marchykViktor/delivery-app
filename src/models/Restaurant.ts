@@ -5,18 +5,18 @@ import {MenuPosition} from './MenuPosition'
 export class Restaurant extends Model<Restaurant> {
 
     @Column
-    name: string;
+    name!: string;
 
     @HasMany(() => MenuPosition)
-    menu: MenuPosition[];
+    menu?: MenuPosition[];
 
     @Column
-    address: string;
+    address!: string;
 
     @CreatedAt
-    creationDate: Date;
+    creationDate!: Date;
 
     @UpdatedAt
-    updatedOn: Date;
+    updatedOn!: Date;
 
 }
