@@ -2,7 +2,7 @@ import {Service, Inject} from 'typedi';
 import {ContainerNames} from "../share";
 import {Repository} from 'sequelize-typescript';
 import {Restaurant} from "../models/Restaurant";
-import {MenuPosition} from "../models/MenuPosition";
+import {MenuItem} from "../models/MenuItem";
 
 
 @Service()
@@ -15,7 +15,7 @@ export default class RestaurantService {
 
     public async addRestaurant(requestParams: any) {
         const restaurant = this.restaurantModel.create(requestParams, {
-            include: [MenuPosition]
+            include: [MenuItem]
         });
         return restaurant;
     }

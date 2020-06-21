@@ -2,7 +2,7 @@ import {Model, Table, Column, ForeignKey, BelongsTo} from 'sequelize-typescript'
 import {Restaurant} from './Restaurant';
 
 @Table
-export class MenuPosition extends Model<MenuPosition> {
+export class MenuItem extends Model<MenuItem> {
 
     @Column
     name!: string;

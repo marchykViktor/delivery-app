@@ -38,6 +38,7 @@
     "sequelize-typescript": "^1.1.0",
     "sqlite3": "^4.2.0",
     "typedi": "^0.8.0",
+    "typescript": "^3.9.5",
     "umzug": "^2.3.0",
     "winston": "^3.2.1"
   }

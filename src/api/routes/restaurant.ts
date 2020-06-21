@@ -6,7 +6,7 @@ import {celebrate, Joi} from "celebrate";
 const route = Router();
 
 export default (app: Router) => {
-    app.use('/restaurant', route);
+    app.use('/restaurants', route);
 
     route.post('/create',
         celebrate({

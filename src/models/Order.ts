@@ -1,35 +1,50 @@
-import {Model, Table, Column, CreatedAt, UpdatedAt,  ForeignKey, BelongsTo} from 'sequelize-typescript';
+import {Model, Table, Column, CreatedAt, UpdatedAt, ForeignKey, BelongsTo, HasMany, Default} from 'sequelize-typescript';
 
 import {Client} from "./Client";
 import {Courier} from "./Courier";
+import {OrderItem} from "./OrderItem";
+import {OrderStatus} from "../enums/OrderStatus";
 
 @Table
 export class Order extends Model<Order> {
 
     @ForeignKey(() => Courier)
     @Column
-    courierId: number;
+    courierId?: number;
 
     @BelongsTo(() => Courier)
-    courier: Courier;
+    courier?: Courier;
 
     @ForeignKey(() => Client)
     @Column
-    clientId: number;
+    clientId!: number;
 
     @BelongsTo(() => Client)
-    client: Client;
+    client!: Client;
 
     @Column
-    address: string;
+    restaurantId!: number;
 
     @Column
-    status: string;
+    address!: string;
+
+    @HasMany(() => OrderItem)
+    orderItems!: OrderItem[];
+
+    @Default(() => OrderStatus.CREATED)
+    @Column
+    status!: string;
+
+    @Column
+    totalPrice!: number;
+
+    @Column
+    finishDate!: Date;
 
     @CreatedAt
-    creationDate: Date;
+    creationDate!: Date;
 
     @UpdatedAt
-    updatedOn: Date;
+    updatedOn!: Date;
 
 }

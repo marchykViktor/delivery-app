@@ -1,5 +1,6 @@
-import {Model, Table, Column, CreatedAt, UpdatedAt, HasMany} from 'sequelize-typescript';
+import {Model, Table, Column, CreatedAt, UpdatedAt, HasMany, Default} from 'sequelize-typescript';
 import {Order} from "./Order";
+import {CourierStatus} from "../enums/CourierStatus";
 
 @Table
 export class Courier extends Model<Courier> {
@@ -13,6 +14,7 @@ export class Courier extends Model<Courier> {
     @Column
     phoneNumber: number;
 
+    @Default(() => CourierStatus.AWAITING)
     @Column
     status: string;
 
