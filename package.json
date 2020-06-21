@@ -1,0 +1,44 @@
+{
+  "name": "delivery-app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/app.ts",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "run": "node src/app.js",
+    "start": "nodemon",
+    "inspect": "nodemon --inspect src/app.ts"
+  },
+  "author": "VMarchuk",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bull": "^3.12.2",
+    "sequelize-cli": "^5.5.1"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.32",
+    "@types/node": "^14.0.13",
+    "@types/validator": "^13.0.0",
+    "body-parser": "^1.19.0",
+    "celebrate": "^12.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "download-git-repo": "^3.0.2",
+    "express": "^4.17.1",
+    "git-clone": "^0.1.0",
+    "got": "^10.6.0",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.2",
+    "open": "^7.0.2",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "sequelize": "^5.21.13",
+    "sequelize-typescript": "^1.1.0",
+    "sqlite3": "^4.2.0",
+    "typedi": "^0.8.0",
+    "umzug": "^2.3.0",
+    "winston": "^3.2.1"
+  }
+}

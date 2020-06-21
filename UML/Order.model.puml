@@ -1,0 +1,17 @@
+@startuml
+
+scale 700 width
+title Model Order
+
+class Order {
+    .. Field Examples ..
+    - id: number
+    - menu: Array<{dishName: string, price: number}>
+    - timeAt: Date
+    - timeOut: number
+    - restaurantId: number
+    - clientId: number
+    - status: string
+}
+
+@enduml

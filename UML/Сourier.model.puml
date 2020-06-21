@@ -1,0 +1,15 @@
+@startuml
+
+scale 700 width
+title Model Сourier
+
+class Сourier {
+    .. Field Examples ..
+    - id: number
+    - orders: Array<orderId>
+    - name: string
+    - phoneNumber: number
+    - address: string
+}
+
+@enduml

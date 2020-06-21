@@ -1,0 +1,10 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "slots-common-tslint-rules"
+    ],
+    "jsRules": {},
+    "rules": {
+    },
+    "rulesDirectory": []
+}

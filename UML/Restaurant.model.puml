@@ -1,0 +1,15 @@
+@startuml
+
+scale 700 width
+title Model Restaurant
+
+class Restaurant {
+    .. Field Examples ..
+    - id: number
+    - menu: Array<{dishName: string, price: number}>
+    - name: string
+    - phoneNumber: number
+    - address: string
+}
+
+@enduml

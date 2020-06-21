@@ -1,0 +1,16 @@
+*dist*
+*node_modules*
+*_temp*
+**/src/**/*.js
+**/src/**/*.js.map
+**/test/**/*.js
+**/test/**/*.js.map
+*package-lock.json
+#IDEA ignore
+*.iml
+!/.idea/runConfigurations/
+/.idea/common-model.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml

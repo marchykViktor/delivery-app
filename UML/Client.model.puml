@@ -1,0 +1,15 @@
+@startuml
+
+scale 700 width
+title Model Client
+
+class Client {
+    .. Field Examples ..
+    - id: number
+    - orders: Array<orderId>
+    - name: string
+    - phoneNumber: number
+    - address: string
+}
+
+@enduml
