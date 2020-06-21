@@ -1,0 +1,148 @@
+[
+  {
+    "model": "Client",
+    "data": {
+      "firstName": "Donald",
+      "lastName": "Trump",
+      "phoneNumber": 123456789,
+      "address": "White house",
+      "orders": [1, 2, 3]
+    }
+  },
+  {
+    "model": "Courier",
+    "data": {
+      "firstName": "Sasha",
+      "lastName": "Pushkin",
+      "phoneNumber": 12345677,
+      "orders": [1]
+    }
+  },
+  {
+    "model": "Courier",
+    "data": {
+      "firstName": "Mikhail",
+      "lastName": "Pochkin",
+      "phoneNumber": 12345677,
+      "orders": [2, 3]
+    }
+  },
+  {
+    "model": "Restaurant",
+    "data": {
+      "name": "Versal",
+      "address": "Shevchenka 1",
+      "menu": [1,2]
+    }
+  },
+  {
+    "model": "Restaurant",
+    "data": {
+      "name": "Julien",
+      "address": "Sobornaya 1",
+      "menu": [3,4]
+    }
+  },
+  {
+    "model": "MenuItem",
+    "data": {
+      "id": 1,
+      "name": "Panacotta",
+      "price": 150,
+      "restaurantId": 1
+    }
+  },
+  {
+    "model": "MenuItem",
+    "data": {
+      "id": 2,
+      "name": "Lazania",
+      "price": 250,
+      "restaurantId": 1
+    }
+  },
+  {
+    "model": "MenuItem",
+    "data": {
+      "id": 3,
+      "name": "Lazania",
+      "price": 350,
+      "restaurantId": 2
+    }
+  },
+  {
+    "model": "MenuItem",
+    "data": {
+      "id": 4,
+      "name": "Grecha",
+      "price": 550,
+      "restaurantId": 2
+    }
+  },
+  {
+    "model": "OrderItem",
+    "data": {
+      "id": 1,
+      "price": 150,
+      "menuId": 1,
+      "count": 2
+    }
+  },
+  {
+    "model": "OrderItem",
+    "data": {
+      "id": 2,
+      "price": 150,
+      "menuId": 1,
+      "count": 2
+    }
+  },
+  {
+    "model": "OrderItem",
+    "data": {
+      "id": 3,
+      "price": 150,
+      "menuId": 1,
+      "count": 2
+    }
+  },
+  {
+    "model": "Order",
+    "data": {
+      "id": 1,
+      "clientId": 1,
+      "address": "Pushkina, 2",
+      "orderItems": [1],
+      "courierId": 1,
+      "status": "done",
+      "totalPrice": 300,
+      "restaurantId": 1
+    }
+  },
+  {
+    "model": "Order",
+    "data": {
+      "id": 2,
+      "clientId": 1,
+      "address": "Pushkina, 2",
+      "orderItems": [2],
+      "courierId": 2,
+      "status": "done",
+      "totalPrice": 300,
+      "restaurantId": 1
+    }
+  },
+  {
+    "model": "Order",
+    "data": {
+      "id": 3,
+      "clientId": 1,
+      "address": "Pushkina, 2",
+      "orderItems": [3],
+      "courierId": 2,
+      "status": "done",
+      "totalPrice": 300,
+      "restaurantId": 2
+    }
+  }
+]

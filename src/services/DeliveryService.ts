@@ -27,7 +27,7 @@ export default class ClientService {
             .map(loadedMenuItem => ({price: loadedMenuItem.price, menuId: loadedMenuItem.id, restaurantId: restaurant.id, count: menu.menu[menu.menu.findIndex(menuItem => menuItem.id === loadedMenuItem.id)].count} as any));
         const totalPrice = orderItems.map(item => item.price*item.count).reduce((a, b) => a + b);
         const courierId  = await this.selectAvailableCourier();
-        const order = await this.orderModel.create({clientId: clientId, orderItems: orderItems, courierId: courierId,status: OrderStatus.IN_PROCESS, totalPrice: totalPrice, restaurantId: restaurant.id}, {
+        const order = await this.orderModel.create({clientId: clientId, address: menu.address, orderItems: orderItems, courierId: courierId,status: OrderStatus.IN_PROCESS, totalPrice: totalPrice, restaurantId: restaurant.id}, {
             include: [OrderItem]
         });
         const client = await this.clientModel.findByPk(clientId);

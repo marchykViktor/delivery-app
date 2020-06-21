@@ -19,11 +19,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
-            let simulationInfo;
+            const clientServiceInstance: ClientService = Container.get(ClientService);
+            let clientInfo;
 
-            simulationInfo = await simulationServiceInstance.addClient(req.body);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            clientInfo = await clientServiceInstance.addClient(req.body);
+            return res.json(clientInfo);
         }
     );
 
@@ -34,11 +34,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
-            let simulationInfo;
+            const clientServiceInstance: ClientService = Container.get(ClientService);
+            let clientInfo;
 
-            simulationInfo = await simulationServiceInstance.getClient(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            clientInfo = await clientServiceInstance.getClient(req.params.id);
+            return res.json(clientInfo);
         }
     );
 
@@ -55,11 +55,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
-            let simulationInfo;
+            const clientServiceInstance: ClientService = Container.get(ClientService);
+            let clientInfo;
 
-            simulationInfo = await simulationServiceInstance.updateClient(req.body, req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            clientInfo = await clientServiceInstance.updateClient(req.body, req.params.id);
+            return res.json(clientInfo);
         }
     );
 
@@ -70,21 +70,21 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
-            let simulationInfo;
+            const clientServiceInstance: ClientService = Container.get(ClientService);
+            let clientInfo;
 
-            simulationInfo = await simulationServiceInstance.deleteClient(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            clientInfo = await clientServiceInstance.deleteClient(req.params.id);
+            return res.json(clientInfo);
         }
     );
 
     route.get('/',
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: ClientService = Container.get(ClientService);
-            let simulationInfo: any;
+            const clientServiceInstance: ClientService = Container.get(ClientService);
+            let clientInfo: any;
 
-            simulationInfo = await simulationServiceInstance.getClients();
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            clientInfo = await clientServiceInstance.getClients();
+            return res.json(clientInfo);
         }
     );
 
@@ -95,18 +95,20 @@ export default (app: Router) => {
             }),
             body: Joi.object({
                 restaurantId: Joi.number().required(),
+                address: Joi.string().required(),
                 menu: Joi.array().required()
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: DeliveryService = Container.get(DeliveryService);
-            let simulationInfo;
+            const clientServiceInstance: DeliveryService = Container.get(DeliveryService);
+            let clientInfo;
 
-            simulationInfo = await simulationServiceInstance.createOrder(req.body, req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            clientInfo = await clientServiceInstance.createOrder(req.body, req.params.id);
+            return res.json(clientInfo);
         }
     );
 
+    // ToDo: Need move in courier route
     route.put('/:id/finishOrder',
         celebrate({
             params: Joi.object({
@@ -117,11 +119,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: DeliveryService = Container.get(DeliveryService);
-            let simulationInfo;
+            const clientServiceInstance: DeliveryService = Container.get(DeliveryService);
+            let clientInfo;
 
-            simulationInfo = await simulationServiceInstance.finishOrder(req.body.orderId);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            clientInfo = await clientServiceInstance.finishOrder(req.body.orderId);
+            return res.json(clientInfo);
         }
     );
 };

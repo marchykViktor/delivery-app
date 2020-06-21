@@ -3,7 +3,6 @@ import CourierService from "../../services/CourierService";
 import CourierAnalyticService from "../../services/CourierAnalyticService";
 import {Container} from 'typedi';
 import {celebrate, Joi} from "celebrate";
-import RestaurantService from "../../services/RestaurantService";
 
 const route = Router();
 
@@ -19,11 +18,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierService = Container.get(CourierService);
-            let simulationInfo;
+            const courierServiceInstance: CourierService = Container.get(CourierService);
+            let courierInfo;
 
-            simulationInfo = await simulationServiceInstance.addCourier(req.body);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.addCourier(req.body);
+            return res.json(courierInfo);
         }
     );
 
@@ -34,11 +33,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierService = Container.get(CourierService);
-            let simulationInfo;
+            const courierServiceInstance: CourierService = Container.get(CourierService);
+            let courierInfo;
 
-            simulationInfo = await simulationServiceInstance.getCourier(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.getCourier(req.params.id);
+            return res.json(courierInfo);
         }
     );
 
@@ -49,11 +48,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierAnalyticService = Container.get(CourierAnalyticService);
-            let simulationInfo;
+            const courierServiceInstance: CourierAnalyticService = Container.get(CourierAnalyticService);
+            let courierInfo;
 
-            simulationInfo = await simulationServiceInstance.getTotalSum(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.getTotalSum(req.params.id);
+            return res.json(courierInfo);
         }
     );
 
@@ -64,11 +63,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierAnalyticService = Container.get(CourierAnalyticService);
-            let simulationInfo;
+            const courierServiceInstance: CourierAnalyticService = Container.get(CourierAnalyticService);
+            let courierInfo;
 
-            simulationInfo = await simulationServiceInstance.getOrdersSum(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.getOrdersSum(req.params.id);
+            return res.json(courierInfo);
         }
     );
 
@@ -79,11 +78,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierAnalyticService = Container.get(CourierAnalyticService);
-            let simulationInfo;
+            const courierServiceInstance: CourierAnalyticService = Container.get(CourierAnalyticService);
+            let courierInfo;
 
-            simulationInfo = await simulationServiceInstance.getAverageDeliveryTime(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.getAverageDeliveryTime(req.params.id);
+            return res.json(courierInfo);
         }
     );
 
@@ -94,11 +93,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierAnalyticService = Container.get(CourierAnalyticService);
-            let simulationInfo;
+            const courierServiceInstance: CourierAnalyticService = Container.get(CourierAnalyticService);
+            let courierInfo;
 
-            simulationInfo = await simulationServiceInstance.getFavoriteAddress(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.getFavoriteAddress(req.params.id);
+            return res.json(courierInfo);
         }
     );
 
@@ -114,11 +113,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierService = Container.get(CourierService);
-            let simulationInfo;
+            const courierServiceInstance: CourierService = Container.get(CourierService);
+            let courierInfo;
 
-            simulationInfo = await simulationServiceInstance.updateCourier(req.body, req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.updateCourier(req.body, req.params.id);
+            return res.json(courierInfo);
         }
     );
 
@@ -129,21 +128,21 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierService = Container.get(CourierService);
-            let simulationInfo;
+            const courierServiceInstance: CourierService = Container.get(CourierService);
+            let courierInfo;
 
-            simulationInfo = await simulationServiceInstance.deleteCourier(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.deleteCourier(req.params.id);
+            return res.json(courierInfo);
         }
     );
 
     route.get('/',
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: CourierService = Container.get(CourierService);
-            let simulationInfo: any;
+            const courierServiceInstance: CourierService = Container.get(CourierService);
+            let courierInfo: any;
 
-            simulationInfo = await simulationServiceInstance.getCouriers();
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            courierInfo = await courierServiceInstance.getCouriers();
+            return res.json(courierInfo);
         }
     );
 };

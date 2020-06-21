@@ -17,11 +17,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
-            let simulationInfo;
+            const restaurantServiceInstance: RestaurantService = Container.get(RestaurantService);
+            let restaurantInfo;
 
-            simulationInfo = await simulationServiceInstance.addRestaurant(req.body);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            restaurantInfo = await restaurantServiceInstance.addRestaurant(req.body);
+            return res.json(restaurantInfo);
         }
     );
 
@@ -32,11 +32,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
-            let simulationInfo;
+            const restaurantServiceInstance: RestaurantService = Container.get(RestaurantService);
+            let restaurantInfo;
 
-            simulationInfo = await simulationServiceInstance.getRestaurant(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            restaurantInfo = await restaurantServiceInstance.getRestaurant(req.params.id);
+            return res.json(restaurantInfo);
         }
     );
 
@@ -51,11 +51,11 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
-            let simulationInfo;
+            const restaurantServiceInstance: RestaurantService = Container.get(RestaurantService);
+            let restaurantInfo;
 
-            simulationInfo = await simulationServiceInstance.updateRestaurant(req.body, req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            restaurantInfo = await restaurantServiceInstance.updateRestaurant(req.body, req.params.id);
+            return res.json(restaurantInfo);
         }
     );
 
@@ -66,21 +66,21 @@ export default (app: Router) => {
             })
         }),
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
-            let simulationInfo;
+            const restaurantServiceInstance: RestaurantService = Container.get(RestaurantService);
+            let restaurantInfo;
 
-            simulationInfo = await simulationServiceInstance.deleteRestaurant(req.params.id);
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            restaurantInfo = await restaurantServiceInstance.deleteRestaurant(req.params.id);
+            return res.json(restaurantInfo);
         }
     );
 
     route.get('/',
         async (req: Request, res: Response) => {
-            const simulationServiceInstance: RestaurantService = Container.get(RestaurantService);
-            let simulationInfo: any;
+            const restaurantServiceInstance: RestaurantService = Container.get(RestaurantService);
+            let restaurantInfo: any;
 
-            simulationInfo = await simulationServiceInstance.getRestaurants();
-            return res.json(simulationInfo).status(simulationInfo.error ? 400 : 200);
+            restaurantInfo = await restaurantServiceInstance.getRestaurants();
+            return res.json(restaurantInfo);
         }
     );
 };
