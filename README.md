@@ -8,7 +8,7 @@ npm build
 npm start
 
 #### create db
-npm create:db
+sequelize db:create
 
 #### add fixtures
-npm create:fixtures
+node ./fixtures.js
