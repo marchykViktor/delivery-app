@@ -24,7 +24,6 @@ const config_1 = __importDefault(require("./src/config"));
     });
     db.sequelize = sequelize;
     db.Sequelize = sequelize_typescript_1.Sequelize;
-    sequelize_fixtures.loadFile('./resources/fixtures/fixtures.json', db).then(function () {
-    });
+    sequelize_fixtures.loadFile('./resources/fixtures/fixtures.json', db);
 })();
 //# sourceMappingURL=fixtures.js.map

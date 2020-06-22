@@ -23,12 +23,8 @@
     "celebrate": "^12.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "download-git-repo": "^3.0.2",
     "express": "^4.17.1",
-    "git-clone": "^0.1.0",
-    "got": "^10.6.0",
     "method-override": "^3.0.0",
-    "multer": "^1.4.2",
     "open": "^7.0.2",
     "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
@@ -36,10 +32,8 @@
     "sequelize": "^5.21.13",
     "sequelize-fixtures": "^1.2.0",
     "sequelize-typescript": "^1.1.0",
-    "sqlite3": "^4.2.0",
     "typedi": "^0.8.0",
     "typescript": "^3.9.5",
-    "umzug": "^2.3.0",
     "winston": "^3.2.1"
   }
 }

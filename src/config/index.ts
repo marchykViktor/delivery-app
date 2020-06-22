@@ -13,10 +13,6 @@ export default {
 
     hostname: process.env.HOST || "127.0.0.1",
 
-    logs: {
-        level: process.env.LOG_LEVEL || 'silly',
-    },
-
     db: {
       path: process.env.POSTGRES_URI
     },

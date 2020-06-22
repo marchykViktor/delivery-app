@@ -23,7 +23,5 @@ import config from './src/config';
     db.sequelize = sequelize;
     db.Sequelize = Sequelize;
 
-    sequelize_fixtures.loadFile('./resources/fixtures/fixtures.json', db).then(function () {
-
-    });
+    sequelize_fixtures.loadFile('./resources/fixtures/fixtures.json', db)
 })();

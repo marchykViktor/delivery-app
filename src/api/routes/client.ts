@@ -96,7 +96,7 @@ export default (app: Router) => {
             body: Joi.object({
                 restaurantId: Joi.number().required(),
                 address: Joi.string().required(),
-                menu: Joi.array().required()
+                orderItems: Joi.array().required()
             })
         }),
         async (req: Request, res: Response) => {

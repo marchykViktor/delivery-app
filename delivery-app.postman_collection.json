@@ -18,7 +18,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Donald\",\r\n    \"lastName\": \"Trump\",\r\n    \"phoneNumber\": 123456789,\r\n    \"address\": \"White house\"\r\n}"
+					"raw": "{\r\n    \"firstName\": \"Donald\",\r\n    \"lastName\": \"Trump\",\r\n    \"phoneNumber\": 123456789,\r\n    \"address\": \"White house\"\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/clients/create",
@@ -50,7 +53,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Versal\",\n\t\"address\": \"Shevchenka 1\",\n\t\"menu\": [{\"name\": \"Panacotta\", \"price\": 150}, {\"name\": \"Lazania\", \"price\": 250}]\n}"
+					"raw": "{\n\t\"name\": \"Versal\",\n\t\"address\": \"Shevchenka 1\",\n\t\"menu\": [{\"name\": \"Panacotta\", \"price\": 150}, {\"name\": \"Lazania\", \"price\": 250}]\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/restaurants/create",
@@ -98,7 +104,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Vasiliy\",\r\n    \"lastName\": \"Pupkin\",\r\n    \"phoneNumber\": 12345677\r\n}"
+					"raw": "{\r\n    \"firstName\": \"Vasiliy\",\r\n    \"lastName\": \"Pupkin\",\r\n    \"phoneNumber\": 12345677\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/couriers/create",
@@ -129,7 +138,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"restaurantId\": 1,\n\t\"address\": \"Pushkina, 2\",\n\t\"menu\": [{\"id\": 1, \"count\": 2}]\n}",
+					"raw": "{\n\t\"restaurantId\": 1,\n\t\"address\": \"Pushkina, 2\",\n\t\"orderItems\": [{\"id\": 1, \"count\": 2}]\n}",
 					"options": {
 						"raw": {}
 					}
@@ -361,7 +370,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"phoneNumber\": 99999999\r\n}"
+					"raw": "{\r\n    \"phoneNumber\": 99999999\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/clients/1",
@@ -392,7 +404,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"address\": \"Hreshcatic 2\"\r\n}"
+					"raw": "{\r\n    \"address\": \"Hreshcatic 2\"\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/restaurants/1",
@@ -423,7 +438,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"phoneNumber\": 99999999\r\n}"
+					"raw": "{\r\n    \"phoneNumber\": 99999999\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/couriers/1",
@@ -454,7 +472,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"orderId\": 1\r\n}"
+					"raw": "{\r\n    \"orderId\": 1\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/clients/1/finishOrder",
