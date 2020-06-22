@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "start": "nodemon",
-    "fixtures": "node ./fixtures.js"
+    "create:fixtures": "node ./fixtures.js",
+    "create:db": "sequelize db:create"
   },
   "author": "VMarchuk",
   "license": "ISC",
